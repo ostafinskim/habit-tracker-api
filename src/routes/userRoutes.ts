@@ -3,21 +3,21 @@ import express from 'express';
 export const userRouter = express.Router();
 
 userRouter.get('/', (req, res) => {
-  res.json({ message: 'all users' })
+	res.json({ message: 'all users' })
 })
 
 userRouter.get('/:id', (req, res) => {
-  res.json({ message: 'single user' })
+	res.json({ message: 'single user' })
 })
 
 userRouter.post('/', (req, res) => {
-  res.json({ message: 'new user' })
+	res.json({ message: 'new user' })
 })
 
 userRouter.patch('/:id', (req, res) => {
-  res.json({ message: 'update single user' })
+	res.json({ message: 'update single user' })
 })
 
 userRouter.delete('/:id', (req, res) => {
-  res.json({ message: 'delete single user' })
+	res.json({ message: 'delete single user' })
 })
