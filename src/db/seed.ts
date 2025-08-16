@@ -17,7 +17,7 @@ const seed = async () => {
 		const [demoUser] = await db.insert(users).values({
 			email: 'demo@app.com',
 			password: 'password123',
-			fistName: 'John',
+			firstName: 'John',
 			lastName: 'Doe',
 			username: 'demo'
 		})

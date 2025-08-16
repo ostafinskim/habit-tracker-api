@@ -6,8 +6,8 @@ export const users = pgTable('users', {
 	id: uuid('id').primaryKey().defaultRandom(),
 	email: varchar('email', { length: 255 }).notNull().unique(),
 	username: varchar('username', { length: 24 }).notNull().unique(),
-	password: varchar('password', { length: 32 }).notNull(),
-	fistName: varchar('first_name', { length: 24 }).notNull(),
+	password: varchar('password', { length: 100 }).notNull(),
+	firstName: varchar('first_name', { length: 24 }).notNull(),
 	lastName: varchar('last_name', { length: 64 }).notNull(),
 	createdAt: timestamp('created_at').defaultNow().notNull(),
 	updatedAt: timestamp('updated_at').defaultNow().notNull()
@@ -89,6 +89,7 @@ export const habitTagsRelations = relations(habitTags, ({ one }) => ({
 
 
 export type User = typeof users.$inferSelect
+export type NewUser = typeof users.$inferInsert
 export type Habit = typeof habits.$inferSelect
 export type Entry = typeof entries.$inferSelect
 export type Tag = typeof tags.$inferSelect
@@ -96,6 +97,3 @@ export type HabitTag = typeof habitTags.$inferSelect
 
 export const insertUserSchema = createInsertSchema(users)
 export const selectUserSchema = createSelectSchema(users)
-
-
-
