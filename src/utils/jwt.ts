@@ -8,8 +8,6 @@ export interface JwtPayload extends JWTPayload {
 	id: string
 	email: string
 	username: string
-	firstName: string
-	lastName: string
 }
 
 export const generateToken = (payload: JwtPayload) => {
