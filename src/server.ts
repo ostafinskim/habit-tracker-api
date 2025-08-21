@@ -2,9 +2,9 @@ import cors from 'cors'
 import express from 'express'
 import helmet from 'helmet'
 import morgan from 'morgan'
-import { authRouter } from './routes/authRoutes.ts'
-import { habitRouter } from './routes/habitRoutes.ts'
-import { userRouter } from './routes/userRoutes.ts'
+import { authRouter } from './routes/auth.ts'
+import { habitRouter } from './routes/habit.ts'
+import { userRouter } from './routes/user.ts'
 import { isTestEnv } from '../env.ts'
 
 export const app = express()
