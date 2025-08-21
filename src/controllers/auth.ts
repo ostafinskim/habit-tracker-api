@@ -1,5 +1,4 @@
 import type { Request, Response } from 'express'
-import bcrypt from 'bcrypt'
 import db from '../db/connection.ts'
 import { users, type NewUser } from '../db/schema.ts'
 import { generateToken } from '../utils/jwt.ts'
@@ -30,8 +29,6 @@ export const register = async (req: Request<any, any, NewUser>, res: Response) =
 			id: user.id,
 			email: user.email,
 			username: user.username,
-			firstName: user.firstName,
-			lastName: user.lastName
 		})
 
 		return res.status(201).json({
@@ -74,6 +71,14 @@ export const login = async (req: Request, res: Response) => {
 
 		return res.json({
 			message: 'Success',
+			user: {
+				id: user.id,
+				email: user.email,
+				username: user.username,
+				firstName: user.firstName,
+				lastName: user.lastName,
+				createdAt: user.createdAt
+			},
 			token
 		})
 	} catch (error) {

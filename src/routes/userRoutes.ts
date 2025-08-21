@@ -1,6 +1,9 @@
 import express from 'express';
+import { authenticateToken } from '../middleware/auth.ts';
 
 export const userRouter = express.Router();
+
+userRouter.use(authenticateToken)
 
 userRouter.get('/', (req, res) => {
 	res.json({ message: 'all users' })
